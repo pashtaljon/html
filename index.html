@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CBI demo</title>
+</head>
+<body>
+    <h1>CBI demo</h1>
+    <h2 id="message" style="color: orangered"></h2>
+    <p>Демо в скрипте cbi-demo.js, пример использования функции в консоли разработчика:</p>
+    <code>getBalanceOf('0xb3C4F3BaBD5511792009e948c3Bdc0c282D5b8a2', (err, res) => {console.log(res.toString())})</code>
+    <p>Важно знать, что MetaMask не внедряет свой web3 в код страницы, если она открыта как файл.
+        Страница должна быть передана в браузер по http(s).</p>
+    <p>Для запуска этого демо можно использовать простой web сервер - http-server из npm.<p>
+    <h3></h3>
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="cbi-demo.js"></script>
+<script src="abi.js"></script>
