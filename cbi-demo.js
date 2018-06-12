@@ -8,14 +8,36 @@ let account = '';
 
 $(document).ready(function() {
     setInterval(connect, 1000);
+	$('#add-white').click(() => {
+		var address = $('#white-account').val()
+		addToWhiteList(address, showRes);		
+	});
+	
+	$('#set-prices').click(() => {
+		var buyPrice = $('#buy-price').val()
+		var sellPrice = $('#sell-price').val()
+		setPrices(buyPrice, sellPrice, showRes);		
+	});
+	
+	$('#buy').click(() => {
+		var value = $('#buy-value').val()
+		buyTokenClaim(value, showRes);		
+	});
 });
+
+function showRes(err, res){
+	if (err)
+		alert(err);
+	else
+		alert(res);
+}
 
 function connect() {
     if (typeof web3 !== 'undefined') {
         web3js = new Web3(web3.currentProvider);
         account = web3js.eth.coinbase;
         if (!account) {
-            $('#message').text('Please, unlock metamask');
+            $('#message').text('Разблокируйте MetaMask');
             connected = false;
         }
         initContract();
@@ -101,7 +123,7 @@ function approve(spender, value, callback) { //only owner can do this
 }
 
 function buyTokenClaim(value, callback) { //value in wei
-    token.buyTokenClaim(tokenId, { from: account, gas: 3000000, value }, callback);
+    token.buyTokenClaim({ from: account, gas: 3000000, value }, callback);
 }
 
 function sellTokenClaim(value, callback) {
