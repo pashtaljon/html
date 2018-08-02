@@ -35,6 +35,11 @@ function initContract() {
 /**
  * GETTERS
  **/
+ 
+function getIsWhited(address, callback) {
+    token.whiteList(address, { from: account }, callback);
+}
+ 
 function getBalanceOf(address, callback) {
     token.balanceOf(address, { from: account }, callback);
 }
@@ -109,21 +114,21 @@ function sellTokenClaim(value, callback) {
 }
 
 function setPrices(sellPrice, buyPrice, callback) { //only owner can do this
-    token.approve(sellPrice, buyPrice, { from: account, gas: 3000000 }, callback);
+    token.setPrices(sellPrice, buyPrice, { from: account, gas: 3000000 }, callback);
 }
 
 function transfer(to, value, callback) {
-    token.approve(to, value, { from: account, gas: 3000000 }, callback);
+    token.transfer(to, value, { from: account, gas: 3000000 }, callback);
 }
 
 function transferFrom(from, to, value, callback) {
-    token.approve(from, to, value, { from: account, gas: 3000000 }, callback);
+    token.transferFrom(from, to, value, { from: account, gas: 3000000 }, callback);
 }
 
 function transferOwnership(address, callback) { //only owner can do this
-    token.approve(address, { from: account, gas: 3000000 }, callback);
+    token.transferOwnership(address, { from: account, gas: 3000000 }, callback);
 }
 
 function withdraw(amount, callback) { //only owner can do this
-    token.approve(amount, { from: account, gas: 3000000 }, callback);
+    token.withdraw(amount, { from: account, gas: 3000000 }, callback);
 }
