@@ -12,7 +12,22 @@
     <p>Важно знать, что MetaMask не внедряет свой web3 в код страницы, если она открыта как файл.
         Страница должна быть передана в браузер по http(s).</p>
     <p>Для запуска этого демо можно использовать простой web сервер - http-server из npm.<p>
-    <h3></h3>
+    <div id="whitelist">
+		<label>Добавить в белый лист</label><br>
+		<input id="white-account" type="text" placeholder="Адрес" />
+		<input id="add-white" type="button" value="Добавить"/>
+	</div>
+	<div id="buy-price">
+		<label>Установить цену продажи и покупки токенов</label><br>		
+		<input id="sell-price" type="number" placeholder="Цена продажи, Eth" />
+		<input id="buy-price" type="number" placeholder="Цена покупки, Eth" />
+		<input id="set-prices" type="button" value="Добавить"/>
+	</div>
+    <div id="buy-cliam">
+		<label>Добавить заявку на покупку токенов</label><br>
+		<input id="buy-value" type="number" placeholder="Wei" />
+		<input id="buy" type="button" value="Добавить"/>
+	</div>
 </body>
 </html>
 
