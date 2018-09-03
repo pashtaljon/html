@@ -99,7 +99,7 @@ function getAllowance(addresFrom, addressTo, callback) {
 }
 
 function getTotalsupply(callback) {
-    token.symbol({ from: account }, callback);
+    token.totalsupply({ from: account }, callback);
 }
 
 /**
@@ -132,7 +132,7 @@ function buyTokenClaim(value, callback) { //value in wei
 }
 
 function sellTokenClaim(value, callback) {
-    token.buyTokenClaim(value, { from: account, gas: 3000000 }, callback);
+    token.sellTokenClaim(value, { from: account, gas: 3000000 }, callback);
 }
 
 function setPrices(sellPrice, buyPrice, callback) { //only owner can do this
